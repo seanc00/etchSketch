@@ -1,8 +1,10 @@
 const targetContainer = document.querySelector('.etchSketchGrid');
 const inputField = document.querySelector('input[type="number"]');
 const submitButton = document.querySelector('button[type="submit"]');
-const gridSizeSpan = document.querySelector('.gridSize'); // Select the span element
-const colorButtons = document.querySelectorAll('.changeColorBtns > button'); // Select color change buttons
+const saveButton = document.querySelector('#saveBtn'); // Save button
+const canvas = document.querySelector('#canvas'); // Canvas element
+const gridSizeSpan = document.querySelector('.gridSize');
+const colorButtons = document.querySelectorAll('.changeColorBtns > button');
 
 let isDrawing = false; // Flag to check if the mouse is pressed
 let useRandomColor = false; // Flag to check if the random color mode is active
@@ -30,11 +32,7 @@ colorButtons.forEach((button, index) => {
     button.classList.add('pressed');
     
     // Set the drawing mode: black or random color
-    if (index === 0) {
-      useRandomColor = false; // Black mode
-    } else if (index === 1) {
-      useRandomColor = true; // Random color mode
-    }
+    useRandomColor = index === 1;
   });
 });
 
@@ -53,22 +51,14 @@ function createGrid(size) {
 
     // Event listener for mousedown to start drawing on click
     newDiv.addEventListener('mousedown', function() {
-      if (useRandomColor) {
-        newDiv.style.backgroundColor = getRandomColor(); // Change to random color
-      } else {
-        newDiv.style.backgroundColor = 'black'; // Change to black
-      }
+      newDiv.style.backgroundColor = useRandomColor ? getRandomColor() : 'black';
       isDrawing = true; // Set drawing mode on
     });
 
     // Event listener for mouseover, but only change color if mouse is pressed
     newDiv.addEventListener('mouseenter', function() {
       if (isDrawing) {
-        if (useRandomColor) {
-          newDiv.style.backgroundColor = getRandomColor(); // Change to random color when mouse is held down
-        } else {
-          newDiv.style.backgroundColor = 'black'; // Change to black when mouse is held down
-        }
+        newDiv.style.backgroundColor = useRandomColor ? getRandomColor() : 'black';
       }
     });
 
@@ -93,6 +83,34 @@ submitButton.addEventListener('click', function() {
 // Event listener to stop drawing when the mouse button is released
 document.body.addEventListener('mouseup', () => {
   isDrawing = false;
+});
+
+// Function to save the grid as PNG
+saveButton.addEventListener('click', function() {
+  const gridItems = document.querySelectorAll('.grid-item');
+  const gridSize = Math.sqrt(gridItems.length); // Calculate grid size (since it's always square)
+
+  // Set canvas size to match grid container
+  canvas.width = targetContainer.offsetWidth;
+  canvas.height = targetContainer.offsetHeight;
+  const ctx = canvas.getContext('2d');
+
+  const divWidth = targetContainer.offsetWidth / gridSize;
+  const divHeight = targetContainer.offsetHeight / gridSize;
+
+  // Draw each grid div onto the canvas
+  gridItems.forEach((div, index) => {
+    const x = (index % gridSize) * divWidth;
+    const y = Math.floor(index / gridSize) * divHeight;
+    ctx.fillStyle = div.style.backgroundColor || 'lightgray'; // Default to light gray if no color
+    ctx.fillRect(x, y, divWidth, divHeight);
+  });
+
+  // Convert canvas to PNG and download
+  const link = document.createElement('a');
+  link.href = canvas.toDataURL('image/png');
+  link.download = 'etchSketchGrid.png';
+  link.click();
 });
 
 // Initial grid creation

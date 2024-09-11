@@ -15,9 +15,7 @@
 
   <div id="bigContainer">
     <div class="contentContainer">
-      <div class="etchSketchGrid">
-
-      </div>
+      <div class="etchSketchGrid"></div>
     </div>
 
     <div class="infoContainer">
@@ -28,10 +26,10 @@
 
       <p>Your grid is <span class="gridSize">16 x 16!</span></p>
 
-
       <div>
         <input type="number" placeholder="Enter a number" min="0">
         <button type="submit">Change Canvas</button>
+        <button id="saveBtn">Save as Image</button> <!-- Save button -->
       </div>
 
       <p>
@@ -42,6 +40,6 @@
     </div>
   </div>
 
-
+  <canvas id="canvas" style="display:none;"></canvas> <!-- Hidden canvas for image generation -->
 </body>
 </html>
