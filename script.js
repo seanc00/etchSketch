@@ -15,4 +15,4 @@ function createGrid(size) {
 }
 
 // Example usage: create a 16x16 grid
-createGrid(50);
+createGrid(16);

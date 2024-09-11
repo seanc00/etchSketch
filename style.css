@@ -3,6 +3,12 @@
   margin: 0;
 }
 
+body {
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .headerContainer {
   display: flex;
   align-items: center;
@@ -11,11 +17,17 @@
 }
 
 .contentContainer {
-  margin-left: auto; /* Center horizontally */
-  margin-right: auto;
-  border: 1px black solid; /* Styling */
+  border: 2px black solid; /* Styling */
+  padding: 1px;
   height: 80vh;
   width: 80vh;
+}
+
+#bigContainer {
+  display: flex;
+  gap: 16px;
+  align-items: start;
+  justify-content: center;
 }
 
 .etchSketchGrid {
@@ -36,3 +48,8 @@
   border: 1px solid black; /* Black border on hover */
 }
 
+.infoContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 50px;
+}
