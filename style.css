@@ -9,3 +9,12 @@
   flex-direction: column;
   padding: 24px;
 }
+
+.contentContainer {
+  margin-left: auto; /* Positioning */
+  margin-right: auto;
+
+  border: 1px black solid; /* styling */
+  height: 80vh;
+  width: 80vh;
+}
