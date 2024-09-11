@@ -1,15 +1,20 @@
-# Project: Etch-a-Sketch
-
+Project: Etch-a-Sketch
 In this project, I developed a browser-based version of an Etch-a-Sketch, demonstrating my proficiency in DOM manipulation, JavaScript, and CSS. The main features include:
 
-- Dynamic Grid Creation: I used JavaScript to create a 16x16 grid of square divs dynamically, ensuring efficient and scalable code without manual HTML modifications.
+Dynamic Grid Creation: I used JavaScript to create a customizable grid of square divs dynamically, allowing the user to input the desired grid size and have the grid generated accordingly.
 
-- Flexbox Layout: I implemented Flexbox to organize the grid, showcasing my ability to create responsive and visually appealing layouts.
+Flexbox Layout: I implemented Flexbox to organize the layout, ensuring that the grid and controls are responsive and visually appealing across different screen sizes.
 
-- Hover Effect: By adding event listeners, I created a hover effect where the grid squares change color upon mouseover, simulating a drawing effect.
+Drawing with Click and Hold: The drawing effect is initiated by clicking and holding the mouse, and the user can "draw" on the grid by dragging the mouse over the squares. This feature adds an interactive drawing experience, simulating an Etch-a-Sketch.
 
-- Interactive Grid Size Adjustment: I included a button that prompts the user for a new grid size (up to 100x100). Upon input, the existing grid is replaced with the new one, maintaining the same overall dimensions.
+Interactive Grid Size Adjustment: Users can input a new grid size, and the existing grid is replaced with a new one. The grid dynamically adjusts while keeping the overall container dimensions the same.
 
-- Enhanced Interactivity: For extra credit, I added features to randomize the squares' colors and progressively darken them with each interaction, highlighting my ability to incorporate advanced JavaScript functionalities and CSS properties.
+Color Mode Toggle:
 
-This project underscores my capability to build interactive and responsive web applications, demonstrating problem-solving skills and an understanding of key web development concepts.
+Black Drawing Mode: The default mode allows the user to draw in black.
+Random Color Mode: Users can toggle to a random color mode, where each grid square is filled with a random color upon interaction. This adds a creative and fun element to the project, showcasing my ability to implement randomization logic with JavaScript.
+Active Button Indicator: The color mode buttons include an active state indicator, using CSS and JavaScript to ensure that the currently selected drawing mode is visually highlighted, enhancing the user experience.
+
+Hover and Click Effects: By adding event listeners, I created interactive hover effects, and the background color of each square changes only when the user clicks and drags the mouse across the grid, making the interaction more precise.
+
+This project underscores my capability to build interactive, responsive web applications and demonstrates my skills in problem-solving, web design, and key web development concepts such as DOM manipulation, event handling, and responsive layout techniques.
