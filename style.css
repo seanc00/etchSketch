@@ -11,23 +11,28 @@
 }
 
 .contentContainer {
-  margin-left: auto; /* Positioning */
+  margin-left: auto; /* Center horizontally */
   margin-right: auto;
-
-  border: 1px black solid; /* styling */
+  border: 1px black solid; /* Styling */
   height: 80vh;
   width: 80vh;
 }
 
 .etchSketchGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-  gap: 1px;
   height: 100%;
   width: 100%;
+  gap: 0px;
 }
-.etchSketchGrid > div {
 
-  border: 1px solid black;
+.etchSketchGrid > div {
+  border: none; /* No border by default */
+  background-color: lightgray; /* Optional for visibility */
+  aspect-ratio: 1 / 1; /* Keeps the divs square */
+  transition: border 0.2s ease-in-out; /* Optional: smooth transition effect */
+}
+
+.etchSketchGrid > div:hover {
+  border: 1px solid black; /* Black border on hover */
 }
 
