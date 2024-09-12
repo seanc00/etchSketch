@@ -87,3 +87,50 @@ body {
 }
 
 
+/* Media Queries for responsive design */
+
+/* Small mobile screens (up to 600px wide) */
+@media (max-width: 600px) {
+  .contentContainer {
+    border: 2px black solid; /* Styling */
+    padding: 1px;
+    height: 95vw;
+    width: 95vw;
+  }
+  .etchSketchGrid > div {
+    border: none; /* No border by default */
+    background-color: lightgray; /* Optional for visibility */
+    aspect-ratio: 1 / 1; /* Keeps the divs square */
+    transition: border 0.2s ease-in-out; /* Optional: smooth transition effect */
+  }
+  #bigContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .inputContainers {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .desc {
+    text-align: center;
+  }
+
+}
+
+/* Tablets and small desktops (between 600px and 900px wide) */
+@media (min-width: 600px) and (max-width: 900px) {
+  /* Add tablet-specific styles here */
+}
